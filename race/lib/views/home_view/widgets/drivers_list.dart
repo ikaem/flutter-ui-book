@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:race/models/results_entry.dart';
+import 'package:race/views/home_view/widgets/country_flag.dart';
+import 'package:race/views/home_view/widgets/number_indicator.dart';
 
 class DriversList extends StatelessWidget {
   final List<ResultsEntry> results;
@@ -13,6 +16,8 @@ class DriversList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: results.length,
       separatorBuilder: (context, index) {
         return const Divider(
@@ -24,7 +29,7 @@ class DriversList extends StatelessWidget {
         final item = results[index];
 
         return ListTile(
-          title: Text(item.surname),
+          title: Text(item.lastName),
           subtitle: Text(item.name),
           leading: Column(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -99,6 +99,7 @@ class _CollapsibleState extends State<Collapsible>
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: regions,
+          // children: [Text("2")],
         ),
       ),
     );
@@ -109,6 +110,7 @@ class _CollapsibleState extends State<Collapsible>
       GestureDetector(
         onTap: toggleExpansion,
         behavior: HitTestBehavior.opaque,
+        // child: Text("no"),
         child: PrimaryRegion(
           animation: animationController,
           child: widget.header,
@@ -118,6 +120,7 @@ class _CollapsibleState extends State<Collapsible>
         key: const Key("Collapsible-SizeTransition"),
         sizeFactor: animationController,
         axisAlignment: 1,
+        // child: Text("no"),
         child: SecondaryRegion(
           heightBetweenRegions: widget.heightBetweenRegions,
           child: widget.content,

@@ -11,10 +11,10 @@ import 'package:race/utils/mixins/random_date_generator.dart';
 import 'package:race/views/home_view/widgets/drivers_list.dart';
 import 'package:race/widgets/collapsible/collapsible.dart';
 
-class MyWidget extends StatelessWidget with RandomDateGenerator {
+class CompactResultsCard extends StatelessWidget with RandomDateGenerator {
   final List<ResultsEntry> results;
 
-  const MyWidget({
+  const CompactResultsCard({
     Key? key,
     required this.results,
   }) : super(key: key);
@@ -32,6 +32,7 @@ class MyWidget extends StatelessWidget with RandomDateGenerator {
           return SizedBox(
             // why wouldnt we just let it expand entire width possible
             width: width,
+            // child: Text("what"),
             child: Card(
               elevation: 5,
               margin: const EdgeInsets.symmetric(
@@ -50,6 +51,7 @@ class MyWidget extends StatelessWidget with RandomDateGenerator {
                 content: DriversList(
                   results: results,
                 ),
+                // content: Text("no"),
               ),
             ),
           );

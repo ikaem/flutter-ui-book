@@ -9,3 +9,5 @@ const maxStretchStandingsCards = 600.0;
 
 /// The maximum allowed width of the circular progress arc.
 const maxCircularProgress = 150.0;
+
+const maxNextRacesContents = 450.0;

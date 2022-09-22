@@ -1,5 +1,7 @@
 {
   "app_title": "Resultati i poredak",
   "results": "Rezultati",
-  "standings": "Poredak"
+  "standings": "Poredak",
+  "winner": "Pobjednik",
+  "circuit_name": "Krug"
 }

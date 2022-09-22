@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -18,6 +19,10 @@ class ExpandedResultsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final res = results.map((r) => r.circuitName);
+
+    print("res: Res: $res");
+
     return LayoutBuilder(
       builder: (context, dimensions) {
         double cardWidth = max<double>(
