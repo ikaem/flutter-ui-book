@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:settings/src/controllers/settings_controller.dart';
 
 class SettingsProvider extends InheritedNotifier<SettingsController> {
   const SettingsProvider({
@@ -9,7 +10,7 @@ class SettingsProvider extends InheritedNotifier<SettingsController> {
 
   static SettingsController of(BuildContext context) {
     final SettingsProvider? result =
-        context.dependOnInheritedWidgetOfExactType<SettingsController>();
+        context.dependOnInheritedWidgetOfExactType<SettingsProvider>();
 
     assert(result != null, "No Settings Provider found in context");
     assert(result!.notifier != null, "No Settings Controller found in context");
