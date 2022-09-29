@@ -15,12 +15,88 @@ class SettingsForm extends StatelessWidget {
     final timeAndPlaceFormSection = _buildTimeAndPlaceFormSection(theme);
     final lookAndFeelFormSection =
         _buildLookAndFeelFormSection(context, settingsController, theme);
+    final securityFormSection = _buildSecurityFormSection();
+    final notificationsFormSection = _buildNotificationsFormSection();
+    final supportFormSection = _buildSupportFormSection();
 
     return ListView(
       children: <Widget>[
         timeAndPlaceFormSection,
         lookAndFeelFormSection,
+        securityFormSection,
+        notificationsFormSection,
+        supportFormSection
 // note that this form section is literally that - a form section - this time form time and place
+      ],
+    );
+  }
+
+  Widget _buildSecurityFormSection() {
+    return CupertinoFormSection(
+      header: const Text("Security"),
+      children: <Widget>[
+        CupertinoFormRow(
+          prefix: const Text("2-FA Auth"),
+          child: CupertinoSwitch(
+            value: true,
+            onChanged: (value) {},
+          ),
+        ),
+        CupertinoFormRow(
+          prefix: const Text("Passcode"),
+          child: CupertinoSwitch(
+            value: true,
+            onChanged: (value) {},
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildNotificationsFormSection() {
+    return CupertinoFormSection(
+      header: const Text("Notifications"),
+      children: <Widget>[
+        CupertinoFormRow(
+          prefix: const Text("Play sounds"),
+          child: CupertinoSwitch(
+            value: true,
+            onChanged: (value) {},
+          ),
+        ),
+        CupertinoFormRow(
+          prefix: const Text("Haptic feedback"),
+          child: CupertinoSwitch(
+            value: true,
+            onChanged: (value) {},
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSupportFormSection() {
+    return CupertinoFormSection(
+      header: const Text("Support"),
+      children: [
+        CupertinoFormRow(
+          prefix: const Text("Shake to send feedback"),
+          child: CupertinoSwitch(
+            value: true,
+            onChanged: (value) {},
+          ),
+        ),
+        CupertinoFormRow(
+          prefix: const Text("Legal notes"),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: const <Widget>[
+              Icon(
+                CupertinoIcons.chevron_right,
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }

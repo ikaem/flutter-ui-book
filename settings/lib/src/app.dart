@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:settings/src/features/cupertino/cupertino_settings_app.dart';
+import 'package:settings/src/features/material/material_settings_app.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -32,7 +32,8 @@ class App extends StatelessWidget {
       // case TargetPlatform.iOS:
       // case TargetPlatform.macOS:
       default:
-        return const CupertinoSettingsApp();
+        // return const CupertinoSettingsApp();
+        return const MaterialSettingsApp();
     }
 
     // return MaterialApp(

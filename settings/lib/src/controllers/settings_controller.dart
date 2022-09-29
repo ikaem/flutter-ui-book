@@ -8,6 +8,12 @@ class SettingsController with ChangeNotifier {
   final SettingsService _settingsService;
 
   late AdaptiveThemeMode _themeMode;
+  bool enableAutoTimeZone = false;
+  bool enableTwoFactorAuth = false;
+  bool enablePasscode = false;
+  bool enableSounds = false;
+  bool enableHapticFeedback = false;
+  bool enableSendFeedback = false;
 
   AdaptiveThemeMode get themeMode => _themeMode;
 
@@ -26,5 +32,35 @@ class SettingsController with ChangeNotifier {
 
     // also need to save data via the service
     await _settingsService.updateThemeMode(newThemeMode);
+  }
+
+  Future<void> updateEnableAutoTimeZone(bool updated) async {
+    enableAutoTimeZone = updated;
+    notifyListeners();
+  }
+
+  Future<void> updateEnableTwoFactorAuth(bool updated) async {
+    enableTwoFactorAuth = updated;
+    notifyListeners();
+  }
+
+  Future<void> updateEnablePasscode(bool updated) async {
+    enablePasscode = updated;
+    notifyListeners();
+  }
+
+  Future<void> updateEnableSounds(bool updated) async {
+    enableSounds = updated;
+    notifyListeners();
+  }
+
+  Future<void> updateEnableHapticFeedback(bool updated) async {
+    enableHapticFeedback = updated;
+    notifyListeners();
+  }
+
+  Future<void> updateEnableSendFeedback(bool updated) async {
+    enableSendFeedback = updated;
+    notifyListeners();
   }
 }
