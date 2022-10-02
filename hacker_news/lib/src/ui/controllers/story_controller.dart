@@ -1,10 +1,13 @@
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+import 'package:hacker_news/src/models/story.dart';
+import 'package:hacker_news/src/services/hacker_news_app_facade.dart';
+import 'package:hacker_news/src/utils/enums.dart';
 
 class StoryController with ChangeNotifier {
-  StoryController(HackerNewsAppFacade? hackerNewsAppFacade)
-      : _hackerNewsApiFacade = hackerNewsAppFacade ?? HackerNewsAppFacade();
+  StoryController(HackerNewsApiFacade? hackerNewsApiFacade)
+      : _hackerNewsApiFacade = hackerNewsApiFacade ?? HackerNewsApiFacade();
 
   final HackerNewsApiFacade _hackerNewsApiFacade;
 
@@ -13,8 +16,9 @@ class StoryController with ChangeNotifier {
   UnmodifiableListView<Story> get stories => UnmodifiableListView(_stories);
   Story? selectedStory;
 
-  Future<void> getStories(
-      {StoriesType storiesType = StoriesType.newStories}) async {
+  Future<void> getStories({
+    StoryType storiesType = StoryType.newStories,
+  }) async {
     final stories = await _hackerNewsApiFacade.getItems(
       storiesType: storiesType,
       fromMap: Story.fromMap,

@@ -1,6 +1,6 @@
 import 'dart:convert';
+import 'dart:developer';
 
-import 'package:hacker_news/src/data/models/item.dart';
 import 'package:hacker_news/src/models/item.dart';
 import 'package:hacker_news/src/utils/enums.dart';
 
@@ -29,12 +29,18 @@ class Story extends Item {
 
   @override
   factory Story.fromMap(Map<String, dynamic> map) {
+    log(map["kids"].toString());
+
+    final something = map["kids"] ?? [];
+    final somethingMore = List<int>.from(something);
     return Story(
       by: map['by'],
       descendants: map['descendants']?.toInt() ?? 0,
       title: map['title'],
       id: map['id']!.toInt(),
-      kids: List<int>.from(map['kids']),
+      // kids: List<int>.from(map['kids']),
+      // kids: [],
+      kids: somethingMore,
       score: map['score']?.toInt() ?? 0,
       type: ItemType.values.byName(map['type']),
       time: DateTime.fromMillisecondsSinceEpoch(map['time']),

@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:hacker_news/src/models/item.dart';
+import 'package:hacker_news/src/models/story.dart';
 import 'package:hacker_news/src/utils/constants.dart';
 import 'package:hacker_news/src/utils/enums.dart';
 import 'package:hacker_news/src/utils/exceptions.dart';
@@ -9,7 +11,7 @@ import 'package:http/http.dart';
 class HackerNewsApiFacade {
   // ok, so this crteates actuall object
   // we can now extract elements from it - duathority, path, params...
-  final Uri endpoint = Uri.parse(hackerNewsApi);
+  final Uri endpoint = Uri.parse(hackerNewsUrl);
 
   final Client _client = Client();
 
@@ -72,7 +74,7 @@ class HackerNewsApiFacade {
 
       final response = await _client.get(url);
 
-      if (response.statusCode == 200) {
+      if (response.statusCode != 200) {
         throw HackerNewsApiException(
           statusCode: response.statusCode,
           message: response.body,
